@@ -1,9 +1,10 @@
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.4'
+        classpath 'com.android.tools.build:gradle:2.3.3'
     }
 }
 apply plugin: 'android'
@@ -13,18 +14,34 @@ repositories {
 }
 
 dependencies {
-    compile files('libs/android-support-v13.jar')
-    compile 'com.google.code.findbugs:jsr305:2.0.1'
-    compile 'com.jakewharton:butterknife:5.1.2'
+    compile 'com.google.gms:google-services:3.1.0'
+    compile ('com.google.android.gms:play-services-gcm:11.0.4') {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+    compile files('libs/commons-net-3.3.jar')
+    compile files('libs/osmdroid-android-4.2.jar')
+    compile files('libs/osmdroid-third-party-4.2.jar')
+    compile files('libs/acra-4.5.0.jar')
+    compile files('libs/butterknife-5.1.2.jar')
+    compile files('libs/d2xx.jar')
+    compile files('libs/dropbox-sync-sdk-android.jar')
+    compile files('libs/jscience.jar')
+    compile files('libs/jsr305-2.0.1.jar')
+    compile files('libs/proguardannotations.jar')
+    compile files('libs/slf4j-android-1.6.1-RC1.jar')
+    compile 'com.android.support:support-v13:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.2.0'
 }
 
 android {
-    compileSdkVersion 17
-    buildToolsVersion "17"
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+    useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 17
+        minSdkVersion 16
+        targetSdkVersion 25
+        multiDexEnabled true
     }
     sourceSets {
         main {
@@ -35,13 +52,9 @@ android {
             renderscript.srcDirs = ['src']
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
         }
 
         instrumentTest.setRoot('tests')
     }
 }
-
-tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
-   pkgTask.jniDir new File(projectDir, 'libs')
-}
-
