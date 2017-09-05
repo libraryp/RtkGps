@@ -14,13 +14,15 @@
 /projectSet.psf
 
 /obj/
-/libs/mips/librtkgps.so
-/libs/armeabi-v7a/librtkgps.so
-/libs/armeabi/librtkgps.so
-/libs/x86/librtkgps.so
+/libs/mips/
+/libs/armeabi-v7a/
+/libs/armeabi/
+/libs/x86/
 
 /.gradle
 /build
+/.idea
+/.settings
 
 
 
