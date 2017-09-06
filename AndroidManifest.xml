@@ -55,7 +55,9 @@
                       android:resource="@xml/usb_device_filter" />
         </activity>
 
-        <activity android:name=".settings.SettingsActivity" />
+        <activity android:name=".settings.SettingsActivity"
+			android:parentActivityName="gpsplus.rtkgps.MainActivity" >
+		</activity>
 
         <activity
             android:name=".settings.StreamSettingsActivity"
