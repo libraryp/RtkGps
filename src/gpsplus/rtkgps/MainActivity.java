@@ -45,6 +45,12 @@ import java.io.IOException;
 
 import javax.annotation.Nonnull;
 
+/* Andoid 6.0 Support */
+import android.support.v4.content.ContextCompat;
+import android.support.v4.app.ActivityCompat;
+import android.Manifest;
+import android.os.Build;
+
 public class MainActivity extends Activity {
 
     private static final boolean DBG = BuildConfig.DEBUG & true;
@@ -73,6 +79,22 @@ public class MainActivity extends Activity {
 
     private int mNavDraverSelectedItem;
     private static String mApplicationDirectory = "";
+
+    private void grantPermission(String permission) {
+        if (ContextCompat.checkSelfPermission(this,
+                permission)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    permission)) {
+                // grant ok
+            } else {
+                // grant ng
+            }
+            ActivityCompat.requestPermissions(this, new String[]{permission}, 0);
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +149,13 @@ public class MainActivity extends Activity {
                 invalidateOptionsMenu();
             }
         });
+
+        // grant Dangerous permission
+        if(Build.VERSION.SDK_INT >= 23) {
+            grantPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            grantPermission(Manifest.permission.ACCESS_COARSE_LOCATION);
+            grantPermission(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
 
         ChangeLog cl = new ChangeLog(this);
         if (cl.firstRun())
