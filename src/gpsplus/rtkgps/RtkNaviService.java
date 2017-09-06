@@ -488,6 +488,9 @@ public class RtkNaviService extends IntentService implements LocationListener
         builder.setContentTitle(getText(R.string.local_service_label));
         builder.setContentText(text);
         builder.setContentIntent(contentIntent);
+        builder.setSmallIcon(R.drawable.ic_launcher);
+        builder.setOngoing(true);
+        builder.setNumber(100);
         builder.setAutoCancel(false);
 
         return builder.build();
