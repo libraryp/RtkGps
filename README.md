@@ -1,5 +1,35 @@
-RtkGps+
+RtkGps++
 =======
+
+### Requirements
+#### Applications
+* Android 5.0+ (Tested at Android 7.1)
+** Note: Android's share is 75% combined from 5.0 to 7.1
+#### Build
+* Android Studio 2.3.3
+* Android NDK r10e+ (Tested at NDK r10e and NDK r14b)
+
+### Changes from RtkGps+:
+#### Applications
+* Delete SiRF IV binary protocol support
+* Support u-blox NEO-M8 message (from RTKLIB 2.4.2 p11)
+* Support Android M(6.0) Run-time permission
+** Request Location and Storage privileges at application startup
+### Build
+* Support Android Studio 2.3.3
+* Change RTKLIB base veriosn 2.4.2 p9 (fork) to 2.4.2 p11(Original)
+* Delete CLAPACK Math Library (Use RTKLIB Built-in function)
+* Change minSdk 14 to 21 (Android 5.0)
+* Change targetSdk 17 to 23 (Android 6.0)
+
+### ToDo
+* Track changes in RTKLIB(p9 to p11)
+* Support Qualcomm Snapdragon Math Libraries
+* Support to Android 6.0+ APIs
+* Change Mapsource from OSM to GoogleMap(Maybe able to change by setting)
+* Documenting the build method
+
+=== RtkGps+ Original README ===
 
 RTKLIB rtknavi port on android.
 
