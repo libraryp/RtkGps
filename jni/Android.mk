@@ -196,5 +196,3 @@ LOCAL_SRC_FILES := \
 	proj-4.8.0/src/vector1.c
 include $(BUILD_SHARED_LIBRARY)
 
-$(call import-module,simonlynen_android_libs/lapack/jni)
-
