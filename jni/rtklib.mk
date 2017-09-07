@@ -53,7 +53,6 @@ LOCAL_SRC_FILES += \
         $(RTKLIB_PATH)/src/rcv/nvs.c \
         $(RTKLIB_PATH)/src/rcv/rcvlex.c \
         $(RTKLIB_PATH)/src/rcv/skytraq.c \
-        $(RTKLIB_PATH)/src/rcv/sirf.c \
         $(RTKLIB_PATH)/src/rcv/ss2.c \
         $(RTKLIB_PATH)/src/rcv/ublox.c \
 	$(RTKLIB_PATH)/src/rcv/rt17.c
